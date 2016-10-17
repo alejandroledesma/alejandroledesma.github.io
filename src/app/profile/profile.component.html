@@ -1,0 +1,28 @@
+<section>
+	<div class="row">
+		<div class="user panel">
+			<div class="user--row user__info">
+				<img [src]="currentUser.avatar_url" *ngIf="currentUser.avatar_url" class="user__pic" />
+				<h2>{{currentUser.name}}</h2>
+				<p>{{currentUser.bio}}</p>
+			</div>
+			<div class="user--row user__follow">
+				<ul class="followers">
+					<li>
+						<a href="https://github.com/{{currentUser.name}}?tab=followers" target="_blank"><span class="followers--num">{{currentUser.followers}}</span>Followers</a>
+					</li>
+					<li>
+						<a href="https://github.com/{{currentUser.name}}?tab=following" target="_blank"><span class="followers--num">{{currentUser.following}}</span>Following</a>
+					</li>
+				</ul>
+			</div>
+			<div class="user--row user__rss">
+				<ul class="rss">
+					<li><a href="http://twitter.com/alex_ledesma_" target="_blank" class="twitter"><i class="icon ion-social-twitter"></i><span></span></a></li>
+					<li><a href="http://es.linkedin.com/in/ledesmalejandro" target="_blank" class="linkedin"><i class="icon ion-social-linkedin"></i><span></span></a></li>
+					<li><a href="https://github.com/alejandroledesma" target="_blank" class="github"><i class="icon ion-social-github"></i><span></span></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>

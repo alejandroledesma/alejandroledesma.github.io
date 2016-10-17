@@ -1,0 +1,89 @@
+:host{
+	display: flex;
+	padding: 1.5rem 0;
+}
+
+.row{
+	justify-content: space-between;
+  align-items: flex-start;
+}
+
+.repository-list{
+	flex: 2;
+}
+
+.repository{
+	&__header{
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+	}
+
+	&__body{
+		&--info{
+			display: flex;
+	    flex-direction: row;
+	    align-items: center;
+	    justify-content: space-between;
+	    width: 100%;
+	    color: #999;
+	    font-size: .85rem;
+		}
+
+		.icon{
+			margin: 0 .5rem 0 0;
+		}
+
+		ul{
+			display: flex;
+		}
+		
+		li + li {
+			margin: 0 0 0 1rem;	
+		}
+	}
+}
+
+.repository-statistics{
+	flex: 1;
+	margin: 0 0 0 1rem;
+
+	h2{
+		margin: 0 0 .5rem 0;
+	}
+
+	ul{
+		font-size: .85rem;
+	}
+}
+
+.lang{
+	padding: .15rem .25rem;
+	border-radius: 4px;
+	background: #e1e1e1;
+	font-size: .65rem;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+h3{
+	margin: 0 0 .5rem 0;
+	font-size: 1rem;
+}
+
+p{
+	margin: 0 0 1rem 0;
+	font-size: .85rem;
+}
+
+@media screen and (max-width: 48rem) {
+	.row{
+		flex-wrap: wrap;
+	}
+
+	.repository-list, .repository-statistics{
+		flex: auto !important;
+		width: 100%;
+		margin: 0;
+	}
+}

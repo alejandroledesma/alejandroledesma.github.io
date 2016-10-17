@@ -1,0 +1,11 @@
+.app-header{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+
+.app-container{
+	margin: 3.5rem 0 0 0;
+	min-height: calc(100vh - 7.125rem);
+}

@@ -1,0 +1,35 @@
+<section>
+	<div class="row">
+		<div class="repository-list">
+			<ul template="ngIf repositories.length > 0">
+				<li class="repository panel" *ngFor="let repository of repositories">
+					<div class="repository__header">
+						<h3><a href="{{repository.html_url}}">{{ repository.name }}</a></h3>
+						<span *ngIf="repository.language" class="lang">{{repository.language}}</span>
+					</div>
+					<div class="repository__body">
+						<p>{{ repository.description }}</p>
+						<div class="repository__body--info">
+							<div class="repository--date">
+								<i class="icon ion-calendar"></i><span>{{repository.updated_at | date: 'dd/MM/yyyy'}}</span>
+							</div>
+							<ul>
+								<li><i class="icon ion-eye"></i><span>{{repository.open_issues}}</span></li>
+								<li><i class="icon ion-alert"></i><span>{{repository.watchers}}</span></li>
+								<li><i class="icon ion-fork-repo"></i><span>{{repository.forks}}</span></li>
+							</ul>
+						</div>
+					</div>
+				</li>
+			</ul>
+
+			<div [hidden]="repositoriesLoaded">Loading repositories...</div>
+		</div>
+		<div class="repository-statistics panel">
+			<h2>Statistics</h2>
+			<ul class="repository-statistics__list">
+				<li>{{currentUser.public_repos}} <span>Public repositories</span></li>
+			</ul>
+		</div>
+	</div>
+</section>
