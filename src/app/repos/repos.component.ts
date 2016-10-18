@@ -28,8 +28,10 @@ export class ReposComponent implements OnInit {
       this.repositoriesLoaded = true;
     });
 
-    this.userService.currentUser().subscribe(currentUser => {
-      this.currentUser = currentUser;
-    });
+    this.userService.currentUser.subscribe(
+      (userData: User) => {
+        this.currentUser = userData;
+      }
+    );
   }
 }
