@@ -85,7 +85,7 @@ button{
 .loader{
   position: fixed;
   top: 50%;
-  margin-top: -42px;
+  margin-top: -44px;
   left: 50%;
-  margin-left: -42px;
+  margin-left: -44px;
 }
