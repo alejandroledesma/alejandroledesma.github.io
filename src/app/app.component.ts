@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
-import { User, UserService } from './shared';
+import {
+  Repository,
+  RepositoriesService,
+  User,
+  UserService } from './shared';
 
 @Component({
   selector: 'app-root',
@@ -9,12 +13,18 @@ import { User, UserService } from './shared';
 })
 export class AppComponent implements OnInit{
 	constructor(
+    private repositoriesService: RepositoriesService,
     private userService: UserService
   ) {}
 
+  repositories: Array<string> = [];
 	currentUser: Object = User;
 
 	ngOnInit() {
+    this.repositoriesService.getAll().subscribe(repositories => {
+      this.repositories = repositories;
+    });
+
 		this.userService.getUser().subscribe(
       (userData) => {
         this.currentUser = userData;

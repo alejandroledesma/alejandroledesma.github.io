@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import {
+  Repository,
   RepositoriesService,
   User,
   UserService } from '../shared';
@@ -18,15 +19,17 @@ export class ReposComponent implements OnInit {
     private userService: UserService
   ) {}
 
+  repositories;
   repositoriesLoaded: boolean = false;
-  repositories: Array<string> = [];
   currentUser: Object = User;
 
   ngOnInit() {
-    this.repositoriesService.getAll().subscribe(repositories => {
-      this.repositories = repositories;
-      this.repositoriesLoaded = true;
-    });
+    this.repositoriesService.repositories.subscribe(
+      (repositoriesRes: Repository) => {
+        this.repositories = repositoriesRes;
+        this.repositoriesLoaded = true;
+      }
+    );
 
     this.userService.currentUser.subscribe(
       (userData: User) => {
